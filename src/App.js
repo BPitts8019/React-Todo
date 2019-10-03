@@ -8,47 +8,86 @@ class App extends React.Component {
    constructor () {
       super();
       this.state = {
+         // listIds: [10, 15, 2, 4, 6, 8],
          // todoList: [
          //    {
          //       task: 'Organize Garage',
-         //       id: 1528817077286,
+         //       id: 2,
          //       completed: true
          //    },
          //    {
          //       task: 'Bake Cookies',
-         //       id: 1528817084358,
+         //       id: 4,
          //       completed: false
          //    },
          //    {
          //       task: 'Task 3',
-         //       id: 1528847077286,
+         //       id: 6,
          //       completed: true
          //    },
          //    {
          //       task: 'Task 4',
-         //       id: 1522817084358,
+         //       id: 8,
          //       completed: false
          //    },
          //    {
          //       task: 'Task 5',
-         //       id: 1528817078286,
+         //       id: 10,
          //       completed: true
          //    },
          //    {
          //       task: 'Task 6',
-         //       id: 1529817084358,
+         //       id: 15,
          //       completed: false
          //    }
          // ]
+         listIds: [],
          todoList: []
       };
+   }
+
+   generateId = () => {
+      const MAX_ID = 20;
+      const MIN_ID = 1;
+      let newId = MIN_ID;
+
+      if (this.state.listIds.length === MAX_ID) {
+         return -1;
+      }
+
+      do {
+         newId = Math.floor(Math.random() * (MAX_ID - MIN_ID + 1) ) + MIN_ID;
+      } while (this.state.listIds.includes(newId));
+
+      return newId;
+   }
+
+   addNewTodo = task => {
+      const currentIds = this.state.listIds;
+      const currentList = this.state.todoList;
+      const newId = this.generateId();
+
+      if (newId !== -1) {
+         const newTodo = {
+            task,
+            id: newId,
+            completed: false
+         };
+   
+         this.setState({
+            listIds: [...currentIds, newId],
+            todoList: [...currentList, newTodo]
+         });
+      } else {
+         alert("Cannot add anymore tasks to the list.");
+      }
    }
 
    render() {
       return (
          <div>
             <h2>Welcome to your Todo App!</h2>
-            <TodoList list={this.state.todoList} />
+            <TodoList list={this.state.todoList} addNewTodo={this.addNewTodo} />
          </div>
       );
    }

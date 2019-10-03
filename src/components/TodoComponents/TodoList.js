@@ -10,7 +10,11 @@ class TodoList extends React.Component {
    renderList () {
       if (this.props.list && this.props.list.length > 0) {
          // return this.props.list.map(todo => <Todo key={todo.id} {...todo} />);
-         return this.props.list.map(todo => <li key={todo.id} id={todo.id} className={(todo.completed)? "todo completed" : "todo"}>{todo.task}</li>);
+         return this.props.list.map(todo => 
+            <li key={todo.id} id={todo.id} className={(todo.completed)? "todo completed" : "todo"}>
+               {todo.task}
+            </li>
+         );
       }
 
       return <h2>Nothing to do... yet!</h2>;
@@ -19,10 +23,10 @@ class TodoList extends React.Component {
    render() {
       return (
          <div>
+            <TodoForm addNewTodo={this.props.addNewTodo} clearTodo={undefined} />
             <ul className="todo-list">
                {this.renderList()}
             </ul>
-            <TodoForm addTodo={undefined} clearTodo={undefined} />
          </div>
       );
    }
