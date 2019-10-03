@@ -8,38 +8,39 @@ class App extends React.Component {
    constructor () {
       super();
       this.state = {
-         todoList: [
-            {
-               task: 'Organize Garage',
-               id: 1528817077286,
-               completed: true
-            },
-            {
-               task: 'Bake Cookies',
-               id: 1528817084358,
-               completed: false
-            },
-            {
-               task: 'Task 3',
-               id: 1528847077286,
-               completed: true
-            },
-            {
-               task: 'Task 4',
-               id: 1522817084358,
-               completed: false
-            },
-            {
-               task: 'Task 5',
-               id: 1528817078286,
-               completed: true
-            },
-            {
-               task: 'Task 6',
-               id: 1529817084358,
-               completed: false
-            }
-         ]
+         // todoList: [
+         //    {
+         //       task: 'Organize Garage',
+         //       id: 1528817077286,
+         //       completed: true
+         //    },
+         //    {
+         //       task: 'Bake Cookies',
+         //       id: 1528817084358,
+         //       completed: false
+         //    },
+         //    {
+         //       task: 'Task 3',
+         //       id: 1528847077286,
+         //       completed: true
+         //    },
+         //    {
+         //       task: 'Task 4',
+         //       id: 1522817084358,
+         //       completed: false
+         //    },
+         //    {
+         //       task: 'Task 5',
+         //       id: 1528817078286,
+         //       completed: true
+         //    },
+         //    {
+         //       task: 'Task 6',
+         //       id: 1529817084358,
+         //       completed: false
+         //    }
+         // ]
+         todoList: []
       };
    }
 
