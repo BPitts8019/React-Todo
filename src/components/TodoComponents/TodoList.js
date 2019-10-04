@@ -21,7 +21,7 @@ class TodoList extends React.Component {
          <div>
             <TodoForm 
                addNewTodo={this.props.addNewTodo}
-               clearTodo={undefined}
+               clearCompleted={this.props.clearCompleted}
             />
             <div className="todo-list">
                {this.renderList()}

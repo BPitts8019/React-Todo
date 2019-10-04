@@ -100,11 +100,22 @@ class App extends React.Component {
    }
 
    toggleComplete = id => {
-      console.log(`Complete task with id: ${id}`)
+      //update local version of state
+      const toggleTodo = this.state.todoList.find(todo => todo.id === id);
+      toggleTodo.completed = !toggleTodo.completed;
+
+      //register update with React
+      this.setState(this.state);
    };
 
    clearCompleted = () => {
-      const updatedList = this.state.todoList.filter(todo => !todo.completed);
+      const newList = this.state.todoList.filter(todo => !todo.completed);
+      const newIds = newList.map(todo => todo.id);
+
+      this.setState({
+         listIds: newIds,
+         todoList: newList
+      });
    }
 
    render() {
@@ -115,7 +126,7 @@ class App extends React.Component {
                list={this.state.todoList} 
                addNewTodo={this.addNewTodo}
                toggleComplete={this.toggleComplete}
-               clearCompleted={() => {}}
+               clearCompleted={this.clearCompleted}
             />
          </div>
       );
