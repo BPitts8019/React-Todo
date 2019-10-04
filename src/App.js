@@ -102,7 +102,7 @@ class App extends React.Component {
    render() {
       return (
          <div>
-            <h2>Welcome to your Todo App!</h2>
+            <h1>Welcome to your Todo App!</h1>
             <TodoList 
                list={this.state.todoList} 
                addNewTodo={this.addNewTodo}

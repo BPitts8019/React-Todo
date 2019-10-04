@@ -20,9 +20,9 @@ class TodoList extends React.Component {
       return (
          <div>
             <TodoForm addNewTodo={this.props.addNewTodo} clearTodo={undefined} />
-            <ul className="todo-list">
+            <div className="todo-list">
                {this.renderList()}
-            </ul>
+            </div>
          </div>
       );
    }

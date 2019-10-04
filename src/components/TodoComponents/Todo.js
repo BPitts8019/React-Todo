@@ -16,13 +16,13 @@ class Todo extends React.Component {
 
    render () {
       return (
-         <li 
+         <div 
             id={this.props.id} 
             className={(this.state.completed)? "todo completed" : "todo"}
             onClick={this.toggleComplete}
          >
             {this.props.task}
-         </li>
+         </div>
       );
    }
 }
