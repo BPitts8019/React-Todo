@@ -1,25 +1,16 @@
 import React from "react";
 
 class Todo extends React.Component {
-   constructor (props) {
-      super(props);
-      this.state = {
-         completed: props.completed
-      }
-   }
-
-   toggleComplete = () => {
-      this.setState({
-         completed: !this.state.completed
-      });
+   handleClick = () => {
+      this.props.toggleComplete(this.props.id);
    };
 
    render () {
       return (
          <div 
             id={this.props.id} 
-            className={(this.state.completed)? "todo completed" : "todo"}
-            onClick={this.toggleComplete}
+            className={(this.props.completed)? "todo completed" : "todo"}
+            onClick={this.handleClick}
          >
             {this.props.task}
          </div>

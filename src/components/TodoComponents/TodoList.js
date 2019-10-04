@@ -5,7 +5,7 @@ import TodoForm from "./TodoForm.js";
 class TodoList extends React.Component {
    renderList () {
       if (this.props.list && this.props.list.length > 0) {
-         return this.props.list.map(todo => <Todo key={todo.id} {...todo} />);
+         return this.props.list.map(todo => <Todo key={todo.id} {...todo} toggleComplete={this.props.toggleComplete}/>);
          // return this.props.list.map(todo => 
          //    <li key={todo.id} id={todo.id} className={(todo.completed)? "todo completed" : "todo"}>
          //       {todo.task}
@@ -19,7 +19,10 @@ class TodoList extends React.Component {
    render() {
       return (
          <div>
-            <TodoForm addNewTodo={this.props.addNewTodo} clearTodo={undefined} />
+            <TodoForm 
+               addNewTodo={this.props.addNewTodo}
+               clearTodo={undefined}
+            />
             <div className="todo-list">
                {this.renderList()}
             </div>

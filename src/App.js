@@ -99,6 +99,14 @@ class App extends React.Component {
       });
    }
 
+   toggleComplete = id => {
+      console.log(`Complete task with id: ${id}`)
+   };
+
+   clearCompleted = () => {
+      const updatedList = this.state.todoList.filter(todo => !todo.completed);
+   }
+
    render() {
       return (
          <div>
@@ -106,6 +114,7 @@ class App extends React.Component {
             <TodoList 
                list={this.state.todoList} 
                addNewTodo={this.addNewTodo}
+               toggleComplete={this.toggleComplete}
                clearCompleted={() => {}}
             />
          </div>
