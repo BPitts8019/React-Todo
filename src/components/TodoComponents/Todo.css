@@ -1,0 +1,17 @@
+.todo-list {
+   list-style: none;
+}
+
+.todo-list .todo {
+   color: inherit;
+   cursor: pointer;
+}
+
+.todo-list .todo:hover {
+   outline: 1px solid dodgerblue;
+}
+
+.todo-list .todo.completed {
+   color: lightgrey;
+   text-decoration: line-through;
+}
